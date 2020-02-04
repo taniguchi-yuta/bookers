@@ -1,1 +1,13 @@
-edit.html.erb
+<h2 class="edit">Editing Book</h2>
+<%= form_for(@book, url:"/homes/#{@book.id}") do |f| %>
+<p class="edit-title">Title</p>
+<p class="text_field"><%= f.text_field :title %></p>
+<p class="edit-body">Body</p>
+<%= f.text_area :body %>
+<p class="submit"><%= f.submit 'Update Book' %></p>
+<% end %>
+<div class="showback">
+<%= link_to "Show", home_path(@book.id) %>
+<span>|</span>
+<%= link_to "Back", homes_path %>
+</div>
