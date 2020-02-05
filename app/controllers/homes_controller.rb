@@ -14,6 +14,7 @@ class HomesController < ApplicationController
 	def create
 		book = Book.new(book_params)
 		book.save
+		flash[:notice] = "Book was successfully created."
 		redirect_to home_path(book.id)
 	end
 
@@ -24,6 +25,7 @@ class HomesController < ApplicationController
 	def update
 		book = Book.find(params[:id])
 		book.update(book_params)
+		flash[:notice] = "Book was successfully created."
 		redirect_to home_path(book.id)
 	end
 
