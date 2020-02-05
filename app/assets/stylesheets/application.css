@@ -24,6 +24,7 @@ body{
 }
 th{
 	padding-bottom: 5px;
+	font-size: 15px;
 }
 td{
 	padding-bottom: 7px;
@@ -63,4 +64,10 @@ a:visited{
 }
 .top-box{
 	margin-left: 40px;
+}
+.flash{
+	color:green;
+}
+.new-book{
+	margin-top: 30px;
 }
