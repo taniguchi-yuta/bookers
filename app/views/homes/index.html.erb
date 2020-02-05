@@ -17,3 +17,26 @@
 	  <% end %>
    </tr>
 </table>
+
+<h2 class="new-book">New book</h2>
+<% if @book.errors.any? %>
+	<div class="alert alert-danger">
+	  <ul>
+	  <% @book.errors.full_messages.each do |msg| %>
+	    <li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	</div>
+<% end %>
+<%= form_for(@book, url: '/homes') do |f| %>
+
+
+
+	<p>Title</p>
+	<p class="text_field"><%= f.text_field :title %></p>
+	<p>Body</p>
+	<%= f.text_area :body %>
+	<p class="submit">
+		<%= f.submit 'Create Book' %>
+	</p>
+<% end %>

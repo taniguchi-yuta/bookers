@@ -1,9 +1,6 @@
 class HomesController < ApplicationController
 	def index
 		@books = Book.all
-	end
-
-	def new
 		@book = Book.new
 	end
 
@@ -12,10 +9,14 @@ class HomesController < ApplicationController
 	end
 
 	def create
-		book = Book.new(book_params)
-		book.save
+		@book = Book.new(book_params)
+		if @book.save
 		flash[:notice] = "Book was successfully created."
-		redirect_to home_path(book.id)
+		redirect_to home_path(@book.id)
+		else
+			@books = Book.all
+			render action: :index
+		end
 	end
 
 	def edit
